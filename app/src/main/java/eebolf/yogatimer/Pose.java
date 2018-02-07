@@ -18,6 +18,12 @@ public class Pose {
     this.subCategories = subCategories;
   }
 
+  public Pose(String name, int startTrans, int endTrans, int time, String icon, String song, List<Subcategory> subcategories) {
+    this.basePose = new BasePose(name, startTrans, endTrans, time, icon);
+    this.song = song;
+    this.subCategories = subcategories;
+  }
+
   public BasePose getBasePose() {
     return basePose;
   }

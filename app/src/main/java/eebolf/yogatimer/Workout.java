@@ -11,9 +11,8 @@ public class Workout {
   private List<Pose> poses = new LinkedList<>();
   private List<Category> categories = new LinkedList<>();
 
-  public Workout(List<Pose> poses, List<Category> categories) {
+  public Workout(List<Pose> poses) {
     this.poses = poses;
-    this.categories = categories;
   }
 
   public List<Pose> getPoses() {
