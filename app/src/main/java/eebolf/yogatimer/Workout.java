@@ -10,8 +10,10 @@ import java.util.List;
 public class Workout {
   private List<Pose> poses = new LinkedList<>();
   private List<Category> categories = new LinkedList<>();
+  private String name = new String();
 
-  public Workout(List<Pose> poses) {
+  public Workout(String name, List<Pose> poses) {
+    this.name = name;
     this.poses = poses;
   }
 
@@ -21,5 +23,9 @@ public class Workout {
 
   public List<Category> getCategories() {
     return categories;
+  }
+
+  public String getName () {
+    return name;
   }
 }

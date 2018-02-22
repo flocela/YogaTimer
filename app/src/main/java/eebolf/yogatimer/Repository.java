@@ -20,7 +20,7 @@ public class Repository {
     poseListA.add(p3a);
     poseListA.add(p4a);
     poseListA.add(p5a);
-    Workout wA = new Workout(poseListA);
+    Workout wA = new Workout("Morning workout", poseListA);
 
     Pose p1b = new Pose("P1b", 1, 1, 10, "P1b Icon", "P1b Song", new LinkedList<Subcategory>());
     Pose p2b = new Pose("P2b", 1, 1, 10, "P2b Icon", "P2b Song", new LinkedList<Subcategory>());
@@ -33,7 +33,7 @@ public class Repository {
     poseListB.add(p3b);
     poseListB.add(p4b);
     poseListB.add(p5b);
-    Workout wB = new Workout(poseListB);
+    Workout wB = new Workout("Afternoon workout", poseListB);
 
     LinkedList<Workout> workouts = new LinkedList<>();
     workouts.add(wA);
