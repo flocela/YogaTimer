@@ -6,33 +6,56 @@ package eebolf.yogatimer;
 
 public class BasePose {
   private String name;
-  private int startTrans = 0;
-  private int endTrans = 0;
-  private int time = 0;
+  private int preDur = 0;
+  private int postDur = 0;
+  private int mainDur = 0;
   private String icon;
 
-  public BasePose(String name, int startTrans, int endTrans, int time, String icon) {
+  public BasePose(String name, int preDur, int postDur, int mainDur, String icon) {
     this.name = name;
-    this.startTrans = startTrans;
-    this.endTrans = endTrans;
-    this.time = time;
+    this.preDur = preDur;
+    this.postDur = postDur;
+    this.mainDur = mainDur;
     this.icon = icon;
+  }
+
+  public void changeTotAllowMainToChange(int totalTime) {
+    int prevTotalTime = postDur + preDur + mainDur;
+    int timeDifference = prevTotalTime - totalTime;
+    mainDur -= timeDifference;
+    if (mainDur < 0) {
+      mainDur = 0;
+    };
+  }
+
+  public void changeTotAllowAllToChange(int totalTime){
+    float prevTotalTime = postDur + preDur + mainDur;
+    postDur = Math.round( (float)postDur/prevTotalTime * totalTime );
+    preDur = Math.round( (float)preDur/prevTotalTime * totalTime );
+    mainDur = Math.round( (float)mainDur/prevTotalTime * totalTime );
+  }
+
+  public void changeTotAllowPreAndPostToChange(int totalTime) {
+    int totalTimeWithoutMain = totalTime - mainDur;
+    int prevTotalTimeWithoutMain = postDur + preDur;
+    postDur = Math.round( (float)postDur/prevTotalTimeWithoutMain * totalTimeWithoutMain );
+    preDur = Math.round( (float)preDur/prevTotalTimeWithoutMain * totalTimeWithoutMain );
   }
 
   public String getName() {
     return name;
   }
 
-  public int getStartTrans() {
-    return startTrans;
+  public int getPreDuration() {
+    return preDur;
   }
 
-  public int getEndTrans() {
-    return endTrans;
+  public int getPostDuration() {
+    return postDur;
   }
 
-  public int getTime() {
-    return time;
+  public int getMainDuration() {
+    return mainDur;
   }
 
   public String getIcon() {
